@@ -52,13 +52,24 @@ def scape():
     exit()
 
 
+def pide_numero(cadena):
+    
+    while True:
+        string = input(cadena)
+        if string.replace(".", "", 1).isnumeric(): 
+            return float(string)
+        #else:
+        print("Solo se pueden introducir números.\n")
+
+
 def check_string(string1, string2):
     if isinstance(string1, (int, float)) and isinstance(string2, (int, float)):
                 num = float(string1)
                 num2 = float(string2)
           
     else:
-        print("Solo se pueden introducir números.\n")
+        return None
+        #print("Solo se pueden introducir números.\n")
             
 
 def get_numbers():
@@ -73,11 +84,18 @@ def menu():
         if option == 5:
             scape()
         
-        while True:
+        num1 = pide_numero("Dame el primer número: ")
+        num2 = pide_numero("Dame el segundo número: ")
+
+
+
+
+        while False:
             print("-" * 15)
             string1 = input("Introduce el primer número: ").strip()
             string2 = input("Introduce el segundo número: ").strip()
-            check_string()
+            check_string(string1, string2)
+            break
 
    
         match option: # Selecciono la función de la calculadora
@@ -91,7 +109,6 @@ def menu():
                 print("El resultado es: ", split(num1, num2))
             case _ :
                 print("Opción no válida.")
-
 
 
 
